@@ -14,16 +14,24 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
+    display: grid;
+    grid-template-areas:
+        "nav nav nav"
+        "radar radar radar"
+        "main main main"
+        "footer footer footer";
 }
 
-.navbar{
-    display:flex;
+.navbar {
+    grid-area: nav;
+    display: flex;
     color: greenyellow;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid rgb(93, 92, 92) ;
+    border-bottom: 2px solid rgb(93, 92, 92);
     margin: 100px;
 }
+
 .navbar .logo {
     background-color: greenyellow;
     border-radius: 50px;
@@ -31,6 +39,7 @@ body {
     padding: 5px;
     margin-bottom: 10px;
 }
+
 .navbar button {
     background-color: black;
     color: greenyellow;
@@ -39,30 +48,259 @@ body {
     padding: 8px;
 }
 
-.radar, .sweep { position: absolute; }
+.navbar button:hover {
+    background-color: green;
+}
+
+.radar-container {
+    position: relative;
+    grid-area: radar;
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    height: 500px;
+    margin-right: 90px;
+    margin-left: 90px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.radar-container:hover {
+    border-color: greenyellow;
+}
+
 .radar {
-  overflow: hidden; 
-  top: 50%; left: 50%;
-  margin: -117px;
-  width: 248px; height: 248px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5),
-    inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
-  background: 
-    repeating-radial-gradient(transparent 0 23px, #287a33 24px 26px, #0000 27px), 
-    linear-gradient(transparent 49.75%, #0e4c42 0 50.25%, transparent 0) 50% no-repeat,
-    linear-gradient(90deg, transparent 49.75%, #0e4c42 0 50.25%, transparent 0) 50% no-repeat,
-    linear-gradient(#333, #111);
-  background-size: 100%, 218px 218px, 218px 218px, 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 45%;
+    left: 20%;
+    margin: -117px;
+    width: 248px;
+    height: 248px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5),
+        inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
+    background:
+        repeating-radial-gradient(transparent 0 23px, #287a33 24px 26px, #0000 27px),
+        linear-gradient(transparent 49.75%, #0e4c42 0 50.25%, transparent 0) 50% no-repeat,
+        linear-gradient(90deg, transparent 49.75%, #0e4c42 0 50.25%, transparent 0) 50% no-repeat,
+        linear-gradient(#333, #111);
+    background-size: 100%, 218px 218px, 218px 218px, 100%;
+    border: 2px solid rgb(125, 203, 8);
 }
+
 .sweep {
-  box-sizing: border-box;
-  top: 16px; left: 16px;
-  border-right: solid 1px hsla(145, 50%, 40%, .3);
-  width: 108px; height: 108px;
-  border-radius: 100% 0 0 0;
-  transform-origin: 100% 100%;
-  background: linear-gradient(50deg, rgba(34, 34, 34, 0) 56%, hsla(145, 50%, 40%, 1));
-  animation: sweep 5s infinite linear;
+    box-sizing: border-box;
+    top: 16px;
+    left: 16px;
+    border-right: solid 1px hsla(145, 50%, 40%, .3);
+    width: 108px;
+    height: 108px;
+    border-radius: 100% 0 0 0;
+    transform-origin: 100% 100%;
+    background: linear-gradient(50deg, rgba(34, 34, 34, 0) 56%, hsla(145, 50%, 40%, 1));
+    animation: sweep 5s infinite linear;
 }
-@keyframes sweep { to { transform: rotate(360deg); } }
+
+@keyframes sweep {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.info {
+    grid-area: info;
+    position: absolute;
+    top: 30%;
+    right: 30%;
+}
+
+.info h2 {
+    color: greenyellow;
+}
+
+.info p {
+    color: gray;
+}
+
+main {
+    grid-area: main;
+}
+
+.main-buttons button {
+    color: white;
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    padding: 8px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.main-buttons button:hover {
+    background-color: rgb(2, 69, 2);
+    border-color: rgb(82, 125, 16);
+}
+
+.main-buttons .new-brief {
+    margin-left: 90px;
+}
+
+.main-buttons .decode {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.main-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-cards .card1 {
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 20px;
+    width: 25%;
+    border-left: 3px solid greenyellow;
+}
+
+.card1 .littel-box {
+    color: rgb(172, 55, 55);
+    border: 1px solid rgb(234, 129, 129);
+    width: 40%;
+    padding: 5px;
+}
+
+.card2 .littel-box {
+    color: rgb(157, 172, 55);
+    border: 1px solid rgb(173, 179, 74);
+    width: 40%;
+    padding: 5px;
+}
+
+.card3 .littel-box {
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    width: 40%;
+    padding: 5px;
+}
+
+.card4 .littel-box {
+    color: darkorange;
+    border: 1px solid darkgoldenrod;
+    width: 40%;
+    padding: 5px;
+}
+
+
+.main-cards .card2 {
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 20px;
+    width: 25%;
+    border-left: 3px solid rgb(188, 188, 3);
+
+}
+
+.main-cards .card1:hover {
+    border-color: greenyellow;
+    transform: scale(1.2);
+    transform: translate(-30px, -30px);
+}
+
+.main-cards .card2:hover {
+    border-color: greenyellow;
+    transform: scale(1.2);
+    transform: translate(-30px, -30px);
+}
+
+.main-cards .card3:hover {
+    border-color: greenyellow;
+    transform: scale(1.2);
+    transform: translate(-30px, -30px);
+}
+
+.main-cards .card4:hover {
+    border-color: greenyellow;
+    transform: scale(1.2);
+    transform: translate(-30px, -30px);
+}
+
+.main-cards .card3 {
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 20px;
+    width: 25%;
+    border-left: 3px solid greenyellow;
+
+}
+
+.main-cards .card4 {
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 20px;
+    width: 25%;
+    border-left: 3px solid rgb(188, 188, 3);
+
+}
+
+.main-cards:nth-child(odd) {
+    border-left: 2px solid rgb(116, 116, 4);
+}
+
+.main-cards .headline {
+    color: white;
+}
+
+.main-cards .top-right {
+    color: gray;
+}
+
+.main-cards .percent {
+    color: greenyellow;
+}
+
+.buttom-main {
+    background-color: rgb(153, 29, 29);
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    border: 3px solid rgb(229, 85, 85);
+    color: rgb(229, 85, 85);
+}
+
+.buttom-main:hover {
+    transform: scale(1.5);
+}
+
+footer {
+    grid-area: footer;
+    border-top: 2px solid gray;
+    margin: 20px;
+}
+footer ul {
+    margin: 20px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+footer li:hover {
+    color: greenyellow;
+    transform: scale(1.2);
+}
+
+#color {
+    color: greenyellow;
+}
