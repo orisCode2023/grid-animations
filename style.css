@@ -10,9 +10,9 @@ body {
     line-height: 1.6;
 }
 
-.contanier {
-    max-width: 1200px;
-    margin: 0 auto;
+.container {
+    max-width: 1000px;
+    margin: auto;
     padding: 40px;
     display: grid;
     grid-template-areas:
@@ -29,7 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid rgb(93, 92, 92);
-    margin: 100px;
+    margin-bottom: 10px;
 }
 
 .navbar .logo {
@@ -38,10 +38,16 @@ body {
     font-size: larger;
     padding: 5px;
     margin-bottom: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar .logo:hover {
+    transform: rotate(180deg);
+
 }
 
 .navbar button {
-    background-color: black;
+    background-color: rgb(46 42 42);
     color: greenyellow;
     border: 2px solid greenyellow;
     border-radius: 15px;
@@ -53,16 +59,14 @@ body {
 }
 
 .radar-container {
-    position: relative;
     grid-area: radar;
-    background-color: rgb(46 42 42);
-    border: 2px solid gray;
-    height: 500px;
-    margin-right: 90px;
-    margin-left: 90px;
-    border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: rgb(46 42 42);
+    border: 2px solid gray;
+    height: 50vh;
+    border-radius: 10px;
 }
 
 .radar-container:hover {
@@ -70,11 +74,9 @@ body {
 }
 
 .radar {
-    position: absolute;
+    grid-area: radar-round;
     overflow: hidden;
-    top: 45%;
-    left: 20%;
-    margin: -117px;
+    margin-left: 20px;
     width: 248px;
     height: 248px;
     border-radius: 50%;
@@ -90,12 +92,9 @@ body {
 }
 
 .sweep {
-    box-sizing: border-box;
-    top: 16px;
-    left: 16px;
     border-right: solid 1px hsla(145, 50%, 40%, .3);
-    width: 108px;
-    height: 108px;
+    width: 123px;
+    height: 123px;
     border-radius: 100% 0 0 0;
     transform-origin: 100% 100%;
     background: linear-gradient(50deg, rgba(34, 34, 34, 0) 56%, hsla(145, 50%, 40%, 1));
@@ -109,13 +108,11 @@ body {
 }
 
 .info {
-    grid-area: info;
-    position: absolute;
-    top: 30%;
-    right: 30%;
+    margin-right: 240px;
 }
 
 .info h2 {
+    font-size: xxx-large;
     color: greenyellow;
 }
 
@@ -124,16 +121,28 @@ body {
 }
 
 main {
-    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 400px 100px;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+}
+
+.main-buttons {
+    grid-area: 1 / 1 / 2 / 4;
+    /* display: flex;
+    justify-content: flex-start; */
 }
 
 .main-buttons button {
     color: white;
     background-color: rgb(46 42 42);
     border: 2px solid gray;
-    padding: 8px;
-    border-radius: 20px;
-    margin-top: 20px;
+    padding: 15px;
+    border-radius: 30px;
+    margin: 20px 0;
+    margin-right: 20px;
+    font-size: large;
 }
 
 .main-buttons button:hover {
@@ -141,28 +150,19 @@ main {
     border-color: rgb(82, 125, 16);
 }
 
-.main-buttons .new-brief {
-    margin-left: 90px;
-}
+/* .main-cards {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
 
-.main-buttons .decode {
-    margin-left: 15px;
-    margin-right: 15px;
-}
+/*  */
 
-.main-cards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-cards .card1 {
-    background-color: rgb(46 42 42);
-    border: 2px solid gray;
+.card1 {
+    grid-area: 2 / 1 / 3 / 2;
     padding: 15px;
     margin: 10px;
     border-radius: 20px;
-    width: 25%;
+    /* width: 25%; */
     border-left: 3px solid greenyellow;
 }
 
@@ -195,53 +195,56 @@ main {
 }
 
 
-.main-cards .card2 {
+.card2 {
+    grid-area: 2 / 2 / 3 / 3;
     background-color: rgb(46 42 42);
     border: 2px solid gray;
     padding: 15px;
     margin: 10px;
     border-radius: 20px;
-    width: 25%;
+    /* width: 25%; */
     border-left: 3px solid rgb(188, 188, 3);
 
 }
 
-.main-cards .card1:hover {
+.card1:hover {
     border-color: greenyellow;
     transform: scale(1.2);
     transform: translate(-30px, -30px);
 }
 
-.main-cards .card2:hover {
+.card2:hover {
     border-color: greenyellow;
     transform: scale(1.2);
     transform: translate(-30px, -30px);
 }
 
-.main-cards .card3:hover {
+.card3:hover {
     border-color: greenyellow;
     transform: scale(1.2);
     transform: translate(-30px, -30px);
 }
 
-.main-cards .card4:hover {
+.card4:hover {
     border-color: greenyellow;
     transform: scale(1.2);
     transform: translate(-30px, -30px);
 }
 
-.main-cards .card3 {
+.card3 {
+    grid-area: 2 / 3 / 3 / 4;
     background-color: rgb(46 42 42);
     border: 2px solid gray;
     padding: 15px;
     margin: 10px;
     border-radius: 20px;
-    width: 25%;
+    /* width: 25%; */
     border-left: 3px solid greenyellow;
 
 }
 
-.main-cards .card4 {
+.card4 {
+    grid-area: 2 / 4 / 3 / 5;
     background-color: rgb(46 42 42);
     border: 2px solid gray;
     padding: 15px;
@@ -267,11 +270,13 @@ main {
 .main-cards .percent {
     color: greenyellow;
 }
+.card {
+    background-color: white;
+}
 
 .buttom-main {
+    grid-area: 3 / 1 / 4 / 5;
     background-color: rgb(153, 29, 29);
-    display: inline-block;
-    width: 100%;
     padding: 15px;
     text-align: center;
     border-radius: 5px;
@@ -280,7 +285,7 @@ main {
 }
 
 .buttom-main:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 footer {
@@ -288,6 +293,7 @@ footer {
     border-top: 2px solid gray;
     margin: 20px;
 }
+
 footer ul {
     margin: 20px;
     color: gray;
@@ -296,6 +302,7 @@ footer ul {
     align-items: center;
     list-style: none;
 }
+
 footer li:hover {
     color: greenyellow;
     transform: scale(1.2);
